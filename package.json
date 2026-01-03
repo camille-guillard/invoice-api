@@ -1,27 +1,25 @@
 {
-  "name": "invoice-api",
+  "name": "invoice-app",
   "version": "1.0.0",
-  "description": "Invoice management REST API with hexagonal architecture",
-  "type": "module",
-  "main": "src/index.js",
+  "description": "Invoice management application - Full stack (Backend API + Vue.js Frontend)",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "start": "node src/index.js",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "test:mutation": "stryker run"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run start -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "build:frontend": "npm run build -w frontend",
+    "test:backend": "npm run test -w backend",
+    "test": "npm run test --workspaces",
+    "install:all": "npm install"
   },
   "devDependencies": {
-    "@stryker-mutator/core": "^9.4.0",
-    "@stryker-mutator/vitest-runner": "^9.4.0",
-    "@vitest/coverage-v8": "^4.0.16",
-    "supertest": "^6.3.3",
-    "vitest": "^4.0.16"
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -1,0 +1,238 @@
+/* Global theme styles - applies dark mode to all components */
+
+/* Cards and containers */
+.invoice-form,
+.invoice-list,
+.invoice-detail,
+.invoice-card,
+.client-list,
+.revenue,
+.home,
+.form,
+.results,
+.table-container,
+.card {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sections and boxes */
+.form-section,
+.invoice-line,
+.totals,
+.info,
+.info-box,
+.stat-card,
+.filters,
+.period-info {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-color) !important;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Text colors - use !important to override scoped styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+.stat-value,
+.client-name,
+.amount,
+.line-header h3,
+.card h2,
+.info h3,
+.period-info h2,
+.section-header h2 {
+  color: var(--text-primary) !important;
+}
+
+p, label, span,
+.subtitle,
+.date,
+.stat-label,
+.filter-group label,
+.form-group label,
+.card p,
+.info li,
+.period-info p {
+  color: var(--text-secondary) !important;
+}
+
+.client-id,
+.empty p {
+  color: var(--text-tertiary) !important;
+}
+
+/* Form elements */
+input, select, textarea,
+.form-group input,
+.form-group select,
+.filter-group input,
+.filter-group select {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color-light) !important;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent) !important;
+}
+
+.calculated-value {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color-light) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Tables */
+table {
+  background: var(--bg-tertiary) !important;
+}
+
+thead {
+  background: var(--bg-tertiary) !important;
+}
+
+th {
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+td {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+tr {
+  background: transparent !important;
+}
+
+/* Buttons */
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+/* Loading, error, empty states */
+.loading,
+.empty {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+.error {
+  background: #3d1f1f;
+  color: #ff6b6b;
+}
+
+[data-theme='light'] .error {
+  background: #f8d7da;
+  color: #dc3545;
+}
+
+/* Shadows */
+.form,
+.results,
+.table-container,
+.invoice-card,
+.filters,
+.card {
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Borders */
+.form-section,
+.invoice-header,
+.period-info,
+.total-final,
+.stat-card,
+.card {
+  border-color: var(--border-color) !important;
+}
+
+/* Status badges - same colors in both modes */
+.status.draft {
+  background: #fff3cd !important;
+  color: #856404 !important;
+}
+
+.status.paid {
+  background: #d4edda !important;
+  color: #155724 !important;
+}
+
+.paid-notice {
+  background: #d4edda !important;
+  color: #155724 !important;
+}
+
+/* Stat card primary (revenue) */
+.stat-card.primary {
+  background: linear-gradient(135deg, #42b983 0%, #359268 100%);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Info box */
+.info-box {
+  background: #1a2733;
+  border-left-color: #2196f3;
+}
+
+[data-theme='light'] .info-box {
+  background: #e7f3ff;
+  border-left-color: #2196f3;
+}
+
+.info-box h3,
+.info-box li {
+  color: var(--text-primary) !important;
+}
+
+/* Additional fixes for dark mode */
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 4px 12px rgba(66, 185, 131, 0.3) !important;
+}
+
+[data-theme='dark'] tbody tr {
+  background: transparent !important;
+}
+
+[data-theme='dark'] .invoice-line {
+  background: var(--bg-tertiary) !important;
+}
+
+/* Fix for all headings in dark mode */
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
+  color: var(--text-primary) !important;
+}
+
+/* Fix total row colors */
+.total-row {
+  color: var(--text-primary) !important;
+}
+
+.total-row .amount {
+  color: var(--text-primary) !important;
+}
+
+/* Fix section headers */
+.section-header h2 {
+  color: var(--text-primary) !important;
+}
+
+/* Fix invoice header */
+.invoice-header h1 {
+  color: var(--text-primary) !important;
+}

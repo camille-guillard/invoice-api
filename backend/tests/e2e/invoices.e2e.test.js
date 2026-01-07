@@ -1,8 +1,9 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import request from 'supertest';
 import { createServer } from '../../src/infrastructure/http/server.js';
 import { Client } from '../../src/domain/entities/Client.js';
 import { randomUUID } from 'crypto';
+import { initMongoDB, closeMongoDB } from '../../src/infrastructure/database/mongodb.js';
 
 describe('Invoices API E2E', () => {
   let app;
@@ -11,7 +12,14 @@ describe('Invoices API E2E', () => {
   const currentYear = new Date().getFullYear();
 
   beforeEach(async () => {
+    // Initialize MongoDB before creating server
+    await initMongoDB();
+
     ({ app, container } = createServer());
+
+    // Clean up collections
+    await container.getInvoiceRepository().deleteAll();
+    await container.getClientRepository().deleteAll();
 
     // Create test client
     const client = new Client({
@@ -23,6 +31,11 @@ describe('Invoices API E2E', () => {
 
     await container.getClientRepository().save(client);
     clientId = client.id;
+  });
+
+  afterEach(async () => {
+    // Close MongoDB connection after each test
+    await closeMongoDB();
   });
 
   describe('POST /api/invoices', () => {

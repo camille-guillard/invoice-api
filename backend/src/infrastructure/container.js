@@ -1,5 +1,5 @@
-import { InMemoryInvoiceRepository } from './repositories/InMemoryInvoiceRepository.js';
-import { InMemoryClientRepository } from './repositories/InMemoryClientRepository.js';
+import { MongoInvoiceRepository } from './repositories/MongoInvoiceRepository.js';
+import { MongoClientRepository } from './repositories/MongoClientRepository.js';
 import { CreateInvoice } from '../application/usecases/CreateInvoice.js';
 import { GetInvoice } from '../application/usecases/GetInvoice.js';
 import { ListInvoices } from '../application/usecases/ListInvoices.js';
@@ -11,9 +11,9 @@ import { GetRevenue } from '../application/usecases/GetRevenue.js';
  */
 export class Container {
   constructor() {
-    // Repositories (singletons)
-    this.invoiceRepository = new InMemoryInvoiceRepository();
-    this.clientRepository = new InMemoryClientRepository();
+    // Repositories (singletons) - Using MongoDB with Memory Server
+    this.invoiceRepository = new MongoInvoiceRepository();
+    this.clientRepository = new MongoClientRepository();
   }
 
   // Use cases

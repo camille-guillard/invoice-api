@@ -1,8 +1,10 @@
 import axios from 'axios'
 
 // Base axios configuration
+// In production (Railway), use VITE_API_URL environment variable
+// In development, use /api (proxied by Vite)
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json'
   }

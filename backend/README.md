@@ -1,4 +1,4 @@
-# invoice-api
+# invoice-app
 
 Invoice management REST API built with Hexagonal Architecture using Node.js and Express.
 

@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import { Container } from '../container.js';
 import { InvoiceController } from './controllers/InvoiceController.js';
@@ -14,6 +15,7 @@ export function createServer() {
   const clientController = new ClientController(container);
 
   // Middleware
+  app.use(cors());
   app.use(express.json());
 
   // Swagger documentation

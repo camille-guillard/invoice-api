@@ -3,16 +3,21 @@ import { Client } from './domain/entities/Client.js';
 import { initMongoDB, closeMongoDB } from './infrastructure/database/mongodb.js';
 
 const PORT = process.env.PORT || 3000;
+const useInMemory = process.env.USE_IN_MEMORY === 'true';
 
-// Initialize MongoDB before starting the server
-await initMongoDB();
+// Initialize MongoDB only in development mode
+if (!useInMemory) {
+  await initMongoDB();
+}
 
 const { app, container } = createServer();
 
 // Graceful shutdown
 process.on('SIGINT', async () => {
   console.log('\nShutting down gracefully...');
-  await closeMongoDB();
+  if (!useInMemory) {
+    await closeMongoDB();
+  }
   process.exit(0);
 });
 

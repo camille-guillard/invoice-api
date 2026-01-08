@@ -46,7 +46,7 @@ const closeMobileMenu = () => {
     </main>
 
     <footer class="footer">
-      <p>Invoice App 2026 - Gestion de factures avec architecture hexagonale</p>
+      <p>Invoice App 2026 - Gestion de factures</p>
     </footer>
   </div>
 </template>

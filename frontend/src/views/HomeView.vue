@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Invoice App - Gestion de Factures</h1>
-    <p class="subtitle">Application de gestion de factures avec architecture hexagonale</p>
+    <p class="subtitle">Application de gestion de factures</p>
 
     <div class="cards">
       <router-link to="/invoices" class="card">

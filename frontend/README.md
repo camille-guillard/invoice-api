@@ -190,3 +190,4 @@ Puis ouvrez votre navigateur sur **http://localhost:5173**
 - `axios` - Client HTTP
 - `@vitejs/plugin-vue` - Plugin Vite pour Vue
 - `vite` - Build tool et dev server
+ 

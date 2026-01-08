@@ -2,7 +2,7 @@
 
 **Application en ligne:** https://invoice-frontend-production-4e48.up.railway.app
 
-Application complète de gestion de factures avec architecture hexagonale.
+Application complète de gestion de factures.
 
 ## Structure du projet
 
